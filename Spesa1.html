@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Lista della spesa</title>
+    <script>
+        var i=1
+        function aggiungi(){
+            
+            var x=document.createElement("br")
+            document.getElementById("element").appendChild(x)
+            i++
+            var y=document.createElement("input")
+            document.getElementById("element").appendChild(y)
+            i++
+            var x=document.createElement("input")
+            x.type="button"
+            x.value="+"
+            
+            var w=document.createAttribute("onclick")
+            w.value="aggiungi()"
+            x.setAttributeNode(w)
+            document.getElementById("element").appendChild(x)
+        }
+        function spedisci(){
+            var spes=document.forms["element"]
+            var spesa=[]
+            var cont=0
+            for(var j=0;j<i;j++){
+                if(j%2==0){
+                    if(spes[j].value!=""){
+                        spesa[cont]=spes[j].value
+                        cont++
+                    }
+                }
+            }
+            localStorage.setItem("vettore",spesa)
+            localStorage.setItem("indirizzo",i+1)
+            
+            document.location.href="fine.html"
+        }
+    </script>
+</head>
+<body>
+    
+        
+        <form id="element">
+            <input type="text" name="inserisci">
+            <input type="button" value="+"  onclick="aggiungi()" name="inserisci">
+        </form>
+        <input type="submit" onclick="spedisci()">
+        </div>
+    
+</html>
