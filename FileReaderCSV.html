@@ -8,24 +8,24 @@
     
     <script>
         function leggi(){
-            var filec = document.getElementById('e').files;
+            var filec = document.getElementById('File').files;//prendo il file
             if(filec.length > 0 ){
-                var file = filec[0];
-                var reader = new FileReader();
-                reader.readAsText(file);
+                var file = aFile[0];
+                var reader = new FileReader();//leggo il file
+                reader.readAsText(file);//trasformo in un testo
                 reader.onload = function(event) {
-                    //prendo il contenuto del file e lo metto in questa variabile
-                    var file1 = event.target.result;
+                    
+                    var file1 = event.target.result;//prendo il contenuto del file
                     var righe = file1.split('\n');
-                    var el = document.getElementById('tabella').getElementsByTagName('tbody')[0];
+                    var tabella = document.getElementById('Creatabella').getElementsByTagName('tabella')[0];
                     el.innerHTML = "";
                     for (var i = 0; i < righe.length; i++) {
-                        var n = el.insertRow();
-                        split = righe[i].split(',');
+                        var riga = el.insertRow();//creo la riga
+                        InsCol = righe[i].split(',');
                         
                         for (var j = 0; j < split.length; j++) {
-                             var cella = n.insertCell();
-                             cella.innerHTML = split[j];
+                             var colonna = riga.insertCell();//creo la colonna
+                             colonna.innerHTML = InsCol[j];
                              if(i==0 && j==0){
                                 var data= new Array(righe.length * split.length);
                                 var c=0;
@@ -64,20 +64,20 @@
     <div>
 
         <div>
-             <input type="file" id="e" > <br><br>
+             <input type="file" id="File" > <br><br>
              
-             <input type="button" id="b" value="stampa" onclick="leggi();" >
+             <input type="button" id="start" value="stampa" onclick="leggi();" >
              <p>Se premi il tasto inferiore verrai inviato ad un altra pagina dove verra creata la tabella</p>
-             <input type="button" id="b" value="CreaTabella" onclick="invia();" >
+             <input type="button" id="start" value="CreaTabella" onclick="invia();" >
         </div>
     
         <br><br>
         
-        <table id="tabella">
+        <table id="Creatabella" border="1px">
       
-             <tbody>
+             <tabella>
     
-             </tbody>
+             </tabella>
     
         </table>
     </div>
