@@ -1,86 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
     <script>
-        function leggi(){
-            var afile = document.getElementById('File').files;//prendo il file
-            if(filec.length > 0 ){
-                var file = aFile[0];
-                var testo = new FileReader();//leggo il file
-                testo.readAsText(file);//trasformo in un testo
+        function leggi() {
+            var afile = document.getElementById('File').files; // prendo il file
+            if (afile.length > 0) {
+                var file = afile[0];
+                var testo = new FileReader(); // creo un FileReader
+                testo.readAsText(file); // trasformo in testo
                 testo.onload = function(event) {
-                    
-                    var file1 = event.target.result;//prendo il contenuto del file
+                    var file1 = event.target.result; // prendo il contenuto del file
                     var righe = file1.split('\n');
-                    var tabella = document.getElementById('Creatabella').getElementsByTagName('tabella')[0];
-                    el.innerHTML = "";
+                    var tabella = document.getElementById('Creatabella').getElementsByTagName('tbody')[0];
+                    tabella.innerHTML = "";
+                    var data = []; // Array per memorizzare i dati
                     for (var i = 0; i < righe.length; i++) {
-                        var riga = el.insertRow();//creo la riga
-                        InsCol = righe[i].split(',');
+                        var riga = tabella.insertRow(); // creo la riga
+                        var colonne = righe[i].split(',');
                         
-                        for (var j = 0; j < split.length; j++) {
-                             var colonna = riga.insertCell();//creo la colonna
-                             colonna.innerHTML = InsCol[j];
-                             if(i==0 && j==0){
-                                var data= new Array(righe.length * split.length);
-                                var c=0;
-                             }
-                             data[c]=split[j];
-                             c++;
+                        for (var j = 0; j < colonne.length; j++) {
+                            var cella = riga.insertCell(); // creo la colonna
+                            cella.innerHTML = colonne[j];
+                            
+                                
+                             
                         }
                   }
-                  var s;
+                  /*var s;
                     for(var i=0; i<data.length;i++){
                         s=s+data[i]+",";
                     }
                     localStorage.setItem("data", s);
+                    */
              }
             
         }
         else{document.getElementById("p").innerHTML="errore, seleziona un file csv"}
 
    }
-   function invia(){
-        document.location.href="Grafico.html";
-
-   }
-
-
-            
-
-            
-            
-
-   
-   </script>
+   /*
+        function invia() {
+            document.location.href = "Grafico.html";
+        }
+        */
+    </script>
 </head>
 <body>
-    <h1>Inserisci un file csv(Comma separated values) e verra creata dinamicamente una tabella</h1>
+    <h1>Inserisci un file CSV (Comma Separated Values) e verrà creata dinamicamente una tabella</h1>
     <div>
-
-        <div>
-             <input type="file" id="File" > <br><br>
-             
-             <input type="button" id="start" value="stampa" onclick="leggi();" >
-             <p>Se premi il tasto inferiore verrai inviato ad un altra pagina dove verra creata la tabella (attualmente non funzionante)</p>
-             <input type="button" id="start" value="CreaTabella" onclick="invia();" >
-        </div>
-    
-        <br><br>
-        
-        <table id="Creatabella">
-      
-             <tabella>
-    
-             </tabella>
-    
-        </table>
+        <input type="file" id="File"><br><br>
+        <input type="button" id="start" value="Stampa" onclick="leggi();">
+        <p>Se premi il tasto inferiore verrai inviato ad un'altra pagina dove verrà creata la tabella (attualmente non funzionante)</p>
+        <input type="button" id="start" value="Crea Tabella" onclick="invia();">
     </div>
+    <br><br>
+    <table id="Creatabella">
+        <tbody></tbody>
+    </table>
     <div id="p"></div>
 </body>
 </html>
+
