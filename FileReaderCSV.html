@@ -34,37 +34,18 @@
                              c++;
                         }
                   }
-
+                  localStorage.setItem("data", data);
              }
-            DisegnaGrafico(data); 
+            
         }
         else{document.getElementById("p").innerHTML="errore, seleziona un file csv"}
+
    }
-   function DisegnaGrafico(data) {
-            var canvas = document.getElementById('myCanvas');
-            var ctx = canvas.getContext('2d');
+   function invia(){
+        document.location.href="grafico.html";
 
-            
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+   }
 
-                var inizio = canvas.height - data[0];
-                var distanza = canvas.width / (data.length - 1);
-
-                ctx.beginPath();
-                ctx.moveTo(50, base - data[0]);
-                ctx.fillText(data[0], 50, base - data[0] - 10);
-
-                for (var i = 1; i < data.length; i=i+2) {
-                    ctx.lineTo(50 + i * interval, base - data[i]);
-                    ctx.fillText(data[i], 50 + i * distanza, inizio - data[i] - 10);
-                    ctx.fillText(data[i-1], 50 + i * distanza, canvas.height);
-                }
-
-                ctx.strokeStyle = 'rgba(255, 99, 132, 0.6)';// do il colore alla riga
-                ctx.lineWidth = 3;
-                // sposto orizzontalmente l'inizio della riga
-                ctx.stroke();
-            }
 
             
 
@@ -80,8 +61,10 @@
 
         <div>
              <input type="file" id="e" > <br><br>
-             <canvas id="myCanvas" width="800" height="400"></canvas>
+             
              <input type="button" id="b" value="stampa" onclick="leggi();" >
+             <p>Se premi il tasto inferiore verrai inviato ad un altra pagina dove verra creata la tabella</p>
+             <input type="button" id="b" value="CreaTabella" onclick="invia();" >
         </div>
     
         <br><br>
