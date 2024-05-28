@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StampaForm</title>
+    <style>
+        body{
+            background-image: url(OIP.jpeg);
+            background-attachment: fixed;
+             background-size: cover;
+            
+        }
+    </style>
+    <script>
+        function stampa(){
+            var s=localStorage.getItem("dati");
+            document.getElementById("stampa").innerHTML+=s;
+        }
+        
+    </script>
+    
+    
+</head> 
+<body >
+    
+    <input type="Button" value="Premi per stampare le informazioni del form" onclick="stampa()">
+
+    
+    <h1>Valori form:</h1>
+    <p id="stampa"></p>
+</html>
