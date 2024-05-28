@@ -14,7 +14,7 @@
     <title>Document</title>
     <script>
         var data=localStorage.getItem("data").split(",");
-        DisegnaGrafico(data); 
+        
         function DisegnaGrafico(data) {
             var canvas = document.getElementById('myCanvas');
             var ctx = canvas.getContext('2d');
@@ -40,6 +40,9 @@
                 // sposto orizzontalmente l'inizio della riga
                 ctx.stroke();
             }
+        document.addEventListener("DOMContentLoaded", function() {
+            DisegnaGrafico(data);
+        });
             
     </script>
 </head>
