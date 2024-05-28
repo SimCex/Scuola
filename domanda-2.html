@@ -1,0 +1,56 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var c=localStorage.getItem("punteggio");
+        var r=localStorage.getItem("risposta");
+        var u=localStorage.getItem("utente");
+        
+        function invia() {
+    
+    for(var y=0;y<=4;y++){
+                var z=document.getElementsByName("domanda")[y]?.checked
+                if(z){
+                    x=document.getElementsByName("domanda")[y].value
+                }
+            }
+            
+           
+    if(x=="Ferrari F8"){
+        
+        c++;
+    }
+    
+  
+  localStorage.setItem("punteggio", c);
+  localStorage.setItem("risposta",r);
+  localStorage.setItem("risposta1",x);
+  localStorage.setItem("utente",u);
+
+  document.location.href="Domanda-3.html";
+}
+    </script>
+</head>
+<body>
+    <img src="Ferrari.jpg" alt="ferrari" width="550" height="350"><br>
+    <h1 id="u"></h1>
+    <h1>Che macchina è nella foto sopra?</h1>
+    
+    <input type="radio" value="Ferrari 488" id="488" name="domanda" checked="">A Ferrari 488 Italia<br>
+    <input type="radio" value="Ferrari F8" id="F8" name="domanda">B Ferrari F8 tributo<br>
+    <input type="radio" value="Ferrari Purosangue" id="Purosangue" name="domanda">C Ferrari Purosangue<br>
+    <input type="radio" value="altro" id="altro" name="domanda">D altro<br>
+    
+
+
+    <input type="Button" value="Next" onclick="invia()">
+    </html>
+    
+    
+    
+    
