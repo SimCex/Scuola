@@ -8,12 +8,12 @@
     
     <script>
         function leggi(){
-            var filec = document.getElementById('File').files;//prendo il file
+            var afile = document.getElementById('File').files;//prendo il file
             if(filec.length > 0 ){
                 var file = aFile[0];
-                var reader = new FileReader();//leggo il file
-                reader.readAsText(file);//trasformo in un testo
-                reader.onload = function(event) {
+                var testo = new FileReader();//leggo il file
+                testo.readAsText(file);//trasformo in un testo
+                testo.onload = function(event) {
                     
                     var file1 = event.target.result;//prendo il contenuto del file
                     var righe = file1.split('\n');
