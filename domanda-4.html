@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var c=localStorage.getItem("punteggio");
+        var r=localStorage.getItem("risposta");
+        var r1=localStorage.getItem("risposta1");
+        var r2=localStorage.getItem("risposta2");
+        var u=localStorage.getItem("utente");
+        function invia() {
+    
+    for(var y=0;y<=4;y++){
+                var z=document.getElementsByName("domanda")[y]?.checked
+                if(z){
+                    x=document.getElementsByName("domanda")[y].value
+                }
+            }
+            
+           
+    if(x=="Tesla"){
+        
+        c++;
+    }
+    
+  
+  localStorage.setItem("punteggio", c);
+  localStorage.setItem("risposta",r);
+  localStorage.setItem("risposta1",r1);
+  localStorage.setItem("risposta2",r2);
+  localStorage.setItem("risposta3",x);
+  document.location.href="Fine.html";
+}
+    </script>
+</head>
+<body>
+    <h1>Qualle delle seguenti marchi di auto produce solo auto elettriche?</h1>
+    <input type="radio" value="Fiat" id="Fiat" name="domanda" checked="">A Fiat<br>
+    <input type="radio" value="Ford" id="Ford" name="domanda">B Ford<br>
+    <input type="radio" value="Jeep" id="Jeep" name="domanda">C Jeep<br>
+    <input type="radio" value="Tesla" id="Tesla" name="domanda">D Tesla<br>
+    <input type="Button" value="Next" onclick="invia()">
+</html>
