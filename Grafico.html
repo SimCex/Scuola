@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        var data=localStorage.getItem("data");
+        var data=localStorage.getItem("data").split(",");
         DisegnaGrafico(data); 
         function DisegnaGrafico(data) {
             var canvas = document.getElementById('myCanvas');
@@ -32,7 +32,7 @@
                 // sposto orizzontalmente l'inizio della riga
                 ctx.stroke();
             }
-            DisegnaGrafico(data); 
+            
     </script>
 </head>
 <body>
