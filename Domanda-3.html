@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var c=localStorage.getItem("punteggio");
+        var r=localStorage.getItem("risposta");
+        var r1=localStorage.getItem("risposta1");
+        var u=localStorage.getItem("utente");
+        function invia() {
+    
+    for(var y=0;y<=4;y++){
+                var z=document.getElementsByName("domanda")[y]?.checked
+                if(z){
+                    x=document.getElementsByName("domanda")[y].value
+                }
+            }
+            
+           
+    if(x=="Bugatti chiron"){
+        
+        c++;
+    }
+    
+  
+  localStorage.setItem("punteggio", c);
+  localStorage.setItem("risposta",r);
+  localStorage.setItem("risposta1",r1);
+  localStorage.setItem("risposta2",x);
+  localStorage.setItem("utente",u);
+  document.location.href="domanda-4.html";
+}
+    </script>
+</head>
+<body>
+    <h1>Quale è la macchina più costosa fra le seguenti</h1>
+    <input type="radio" value="Bugatti chiron" id="Bugatti" name="domanda" checked="">A Bugatti chiron<br>
+    <input type="radio" value="Rolls-royce phantom" id="Rolls" name="domanda">B rolls-royce phantom<br>
+    <input type="radio" value="Lamborghini aventador" id="Lamborghini" name="domanda">C lamborghini aventador<br>
+    <input type="radio" value="altro" id="altro" name="domanda">D altro<br>
+    <input type="Button" value="Next" onclick="invia()">
+</html>
