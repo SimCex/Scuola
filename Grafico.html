@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+    <body>
+    <div class="container mt-5">
+        <h1 class="text-center">Canvas Line Chart</h1>
+        <canvas id="myCanvas" width="800" height="400"></canvas>
+        <br>
+        
+    </div>
+</body>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +29,7 @@
                 ctx.moveTo(50, base - data[0]);
                 ctx.fillText(data[0], 50, base - data[0] - 10);
 
-                for (var i = 1; i < data.length; i=i+2) {
+                for (var i = 0; i < data.length; i=i+2) {
                     ctx.lineTo(50 + i * interval, base - data[i]);
                     ctx.fillText(data[i], 50 + i * distanza, inizio - data[i] - 10);
                     ctx.fillText(data[i-1], 50 + i * distanza, canvas.height);
@@ -40,7 +48,7 @@
         <h1 class="text-center">Canvas Line Chart</h1>
         <canvas id="myCanvas" width="800" height="400"></canvas>
         <br>
-        <button id="updateButton" class="btn btn-primary">Update Chart</button>
+        
     </div>
 </body>
 </html>
