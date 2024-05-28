@@ -1,0 +1,59 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var z;
+        var x;
+        var c=0;
+        var u;
+
+        function crea(){
+            u=document.getElementById("utente").value;
+            
+            document.getElementById("u").innerHTML=u;
+        }
+       
+    function invia() {
+    
+        for(var y=0;y<=4;y++){
+                    var z=document.getElementsByName("domanda")[y]?.checked
+                    if(z){
+                        x=document.getElementsByName("domanda")[y].value
+                    }
+                }
+                
+               
+        if(x=="Koenigsegg Jesko Absolut"){
+           c++;
+        }
+        
+      
+      localStorage.setItem("punteggio", c);
+      localStorage.setItem("risposta",x);
+      localStorage.setItem("utente",u);
+      document.location.href="domanda-2.html";
+    }
+    </script>
+</head>
+<body >
+    <p>Inserisci il nome utente</p>
+    <input type="text" id="utente">
+    <input type="button" value="inserisci" onclick="crea()">
+    <br>
+    <strong>Ciao </strong><strong id="u"></strong>
+    <h1>Quale è l'auto più veloce al mondo? </h1>
+    <input type="radio" value="Ferrari F8" id="Ferrari" name="domanda">A Ferrari F8<br>
+    <input type="radio" value="Lamborghini huracan" id="Lamborghini" name="domanda">B lamborghini huracan<br>
+    <input type="radio" value="Koenigsegg Jesko Absolut" id="Koenigsegg" name="domanda">C Koenigsegg Jesko Absolut<br>
+    <input type="radio" value="altro" id="altro" name="domanda">D altro<br>
+    
+
+
+<input type="Button" value="Next" onclick="invia()">
+
+</html>
