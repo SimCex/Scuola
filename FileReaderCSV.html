@@ -34,8 +34,11 @@
                              c++;
                         }
                   }
-                  localStorage.setItem("data", JSON.stringify(data));
-
+                  var s;
+                    for(var i=0; i<data.length;i++){
+                        s=s+data[i];
+                    }
+                    localStorage.setItem("data", s);
              }
             
         }
