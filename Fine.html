@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var c=localStorage.getItem("punteggio");
+        var r=localStorage.getItem("risposta");
+        var r1=localStorage.getItem("risposta1");
+        var r2=localStorage.getItem("risposta2");
+        var r3=localStorage.getItem("risposta3");
+        var u=localStorage.getItem("utente");
+        function stampa(){
+            document.getElementById("head").innerHTML="complimenti "+u+" sei arrivato alla fine";
+            document.getElementById("risp1").innerHTML="la risposta alla prima domanda era la C cioè Koenigsegg Jesko Absolut e tu hai risposto "+r;
+            document.getElementById("risp2").innerHTML="la risposta alla seconda domanda era la B cioè Ferrari F8 e tu hai risposto "+r1;
+            document.getElementById("risp3").innerHTML="la risposta alla terza domanda era la A cioè Bugatti chiron e tu hai risposto "+r2;
+            document.getElementById("risp4").innerHTML="la risposta alla quarta domanda era la D cioè Tesla e tu hai risposto "+r3;
+            document.getElementById("punt").innerHTML="il punteggio da te totalizzato è "+c;
+
+        }
+    </script>
+</head>
+<body>
+    <input type="Button" value="Premi per terminare" onclick="stampa()">
+    <div id="head"></div>
+    <div id="risp1"></div>
+    <div id="risp2"></div>
+    <div id="risp3"></div>
+    <div id="risp4"></div>
+    <div id="punt"></div>
+</html>
