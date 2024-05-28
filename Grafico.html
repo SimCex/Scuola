@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var data=localStorage.getItem("data");
+        DisegnaGrafico(data); 
+        function DisegnaGrafico(data) {
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+
+            
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                var inizio = canvas.height - data[0];
+                var distanza = canvas.width / (data.length - 1);
+
+                ctx.beginPath();
+                ctx.moveTo(50, base - data[0]);
+                ctx.fillText(data[0], 50, base - data[0] - 10);
+
+                for (var i = 1; i < data.length; i=i+2) {
+                    ctx.lineTo(50 + i * interval, base - data[i]);
+                    ctx.fillText(data[i], 50 + i * distanza, inizio - data[i] - 10);
+                    ctx.fillText(data[i-1], 50 + i * distanza, canvas.height);
+                }
+
+                ctx.strokeStyle = 'rgba(255, 99, 132, 0.6)';// do il colore alla riga
+                ctx.lineWidth = 3;
+                // sposto orizzontalmente l'inizio della riga
+                ctx.stroke();
+            }
+            DisegnaGrafico(data); 
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Canvas Line Chart</h1>
+        <canvas id="myCanvas" width="800" height="400"></canvas>
+        <br>
+        <button id="updateButton" class="btn btn-primary">Update Chart</button>
+    </div>
+</body>
+</html>

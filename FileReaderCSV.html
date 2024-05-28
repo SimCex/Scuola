@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        function leggi(){
+            var filec = document.getElementById('e').files;
+            if(filec.length > 0 ){
+                var file = filec[0];
+                var reader = new FileReader();
+                reader.readAsText(file);
+                reader.onload = function(event) {
+                    //prendo il contenuto del file e lo metto in questa variabile
+                    var file1 = event.target.result;
+                    var righe = file1.split('\n');
+                    var el = document.getElementById('tabella').getElementsByTagName('tbody')[0];
+                    el.innerHTML = "";
+                    for (var i = 0; i < righe.length; i++) {
+                        var n = el.insertRow();
+                        split = righe[i].split(',');
+                        
+                        for (var j = 0; j < split.length; j++) {
+                             var cella = n.insertCell();
+                             cella.innerHTML = split[j];
+                             if(i==0 && j==0){
+                                var data= new Array(righe.length * split.length);
+                                var c=0;
+                             }
+                             data[c]=split[j];
+                             c++;
+                        }
+                  }
+
+             }
+            DisegnaGrafico(data); 
+        }
+        else{document.getElementById("p").innerHTML="errore, seleziona un file csv"}
+   }
+   function DisegnaGrafico(data) {
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+
+            
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                var inizio = canvas.height - data[0];
+                var distanza = canvas.width / (data.length - 1);
+
+                ctx.beginPath();
+                ctx.moveTo(50, base - data[0]);
+                ctx.fillText(data[0], 50, base - data[0] - 10);
+
+                for (var i = 1; i < data.length; i=i+2) {
+                    ctx.lineTo(50 + i * interval, base - data[i]);
+                    ctx.fillText(data[i], 50 + i * distanza, inizio - data[i] - 10);
+                    ctx.fillText(data[i-1], 50 + i * distanza, canvas.height);
+                }
+
+                ctx.strokeStyle = 'rgba(255, 99, 132, 0.6)';// do il colore alla riga
+                ctx.lineWidth = 3;
+                // sposto orizzontalmente l'inizio della riga
+                ctx.stroke();
+            }
+
+            
+
+            
+            
+
+   
+   </script>
+</head>
+<body>
+    <h1>Inserisci un file csv(Comma separated values) e verra creata dinamicamente una tabella</h1>
+    <div>
+
+        <div>
+             <input type="file" id="e" > <br><br>
+             <canvas id="myCanvas" width="800" height="400"></canvas>
+             <input type="button" id="b" value="stampa" onclick="leggi();" >
+        </div>
+    
+        <br><br>
+        
+        <table id="tabella">
+      
+             <tbody>
+    
+             </tbody>
+    
+        </table>
+    </div>
+    <div id="p"></div>
+</body>
+</html>
