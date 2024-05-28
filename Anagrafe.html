@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <title>Anagrafe</title>
+    <script>
+        function stampa(){
+            var x="nome:";
+            x+=document.getElementById("nome").value
+            x+=" cognome :\n"
+            x+=document.getElementById("cognome").value
+            x+=" età: \n"
+            x+=document.getElementById("eta").value
+            x+=" sesso: \n"
+            for(var y=0;y<=3;y++){
+                var z=document.getElementsByName("sesso")[y]?.checked
+                if(z){
+                    x+=document.getElementsByName("sesso")[y].value
+                }
+            }
+            x+=" comune di nascita: \n"
+            x+=document.getElementById("comune").value
+            x+="provincia di nascita: \n"
+            var opt=document.forms.pr.provincia.options
+            for(var y=0;y<opt.length;y++){
+                if(opt[y].selected){
+                    x+=opt[y].value
+                    x+="\n"
+                }
+            }
+            x+=" spoirt: \n"
+            opt=document.forms.spr.sport.options
+            for(var y=0;y<opt.length;y++){
+                if(opt[y].selected){
+                    x+=opt[y].value
+                    x+="\n"
+                }
+            }
+            x+=" materie insufficienti: \n"
+            for(var y=0;y<=11;y++){
+                var z=document.getElementsByName("materia")[y]?.checked
+                if(z){
+                    x+=document.getElementsByName("materia")[y].value
+                    x+="\n"
+                }
+            }
+            document.getElementById("ris").innerHTML=x
+        }
+    </script>
+</head>
+<body>
+    
+        <p>Nome:</p>
+        <input type="text" id="nome">
+        <p>Cognome:</p>
+        <input type="text" id="cognome">
+        <p>Età:</p>
+        <input type="number" id="eta">
+        <p>Sesso:</p>
+        <input type="radio" value="maschio" id="maschio" name="sesso" checked="">M
+        <input type="radio" value="femmina" id="femmina" name="sesso">F
+        <input type="radio" value="altro" id="altro" name="sesso">altro
+        <p>Comune di nascita:</p>
+        <input type="text" id="comune">
+        <p>Provincia di nascita:</p>
+        <form name="pr">
+        <select name="provincia">
+            <option value="RM">Roma</option>
+            <option value="NA">Napoli</option>
+            <option value="TO">Torino</option>
+            <option value="MI">Milano</option>
+            <option value="BO">Bologna</option>
+            <option value="MA">Mantova</option>
+            <option value="Pa">Palermo</option>
+            <option value="VE">Venezia</option>
+        </select>
+        </form>
+        <p>Sport preferiti:</p>
+        <form name="spr">
+        <select name="sport" multiple="">
+            <option value="calcio">Calcio</option>
+            <option value="basket">Basket</option>
+            <option value="pallavolo">Pallavolo</option>
+            <option value="pallanuoto">Pallanuoto</option>
+            <option value="tennis">Tennis</option>
+            <option value="Ping Pong">Ping Pong</option>
+            <option value="nuoto">Nuoto</option>
+        </select>
+        </form>
+        <p>Materie insufficienti:</p>
+        <input type="checkbox" value="italiano" name="materia">italiano
+        <input type="checkbox" value="storia" name="materia">storia
+        <input type="checkbox" value="religione" name="materia">religione<br>
+        <input type="checkbox" value="inglese" name="materia">inglese
+        <input type="checkbox" value="fisica" name="materia">educazione fisica
+        <input type="checkbox" value="matematica" name="materia">matematica<br>
+        <input type="checkbox" value="informatica" name="materia">informatica
+        <input type="checkbox" value="sistemi" name="materia">sistemi
+        <input type="checkbox" value="tps" name="materia">tps<br>
+        <input type="checkbox" value="telecomunicazioni" name="materia">telecomunicazioni
+        <input type="checkbox" value="civica" name="materia">educazione civica<br><br>
+        <input type="button" value="Invia" onclick="stampa()">
+        <p id="ris"></p>
+    
+
+</body>
+</html>
